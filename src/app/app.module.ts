@@ -19,10 +19,11 @@ import { AppComponent } from "./app.component"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component'
+import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
+import { CartComponent } from './pages/cart/cart.component'
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, ProductsHeaderComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, ProductsHeaderComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
