@@ -33,7 +33,6 @@ import { HttpClientModule } from "@angular/common/http"
     ProductsHeaderComponent,
     FiltersComponent,
     ProductBoxComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,

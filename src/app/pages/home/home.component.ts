@@ -13,12 +13,8 @@ const ROWS_HEIGHT: { [id: number]: number } = {
 })
 export class HomeComponent implements OnInit, OnDestroy {
   cols = 3
-<<<<<<< HEAD
   rowHeight = ROWS_HEIGHT[this.cols]
   category: string | undefined
-  constructor() {}
-=======
->>>>>>> origin/feature/service/store
 
   products: Array<Product> | undefined
   sort = "desc"
