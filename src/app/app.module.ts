@@ -22,6 +22,8 @@ import { HomeComponent } from "./pages/home/home.component"
 import { ProductsHeaderComponent } from "./pages/home/components/products-header/products-header.component"
 import { FiltersComponent } from "./pages/home/components/filters/filters.component"
 import { ProductBoxComponent } from "./pages/home/components/product-box/product-box.component"
+import { StoreService } from "./services/store.service"
+import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -49,8 +51,9 @@ import { ProductBoxComponent } from "./pages/home/components/product-box/product
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [StoreService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
