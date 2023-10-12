@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onShowCategory(newCategory: string): void {
-    this.category = newCategory
+    this.category = newCategory === "All" ? undefined : newCategory
     this.getProducts()
   }
 

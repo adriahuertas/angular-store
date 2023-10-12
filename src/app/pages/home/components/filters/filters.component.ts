@@ -16,6 +16,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
   @Output() showCategory = new EventEmitter<string>()
   categoriesSubscription: Subscription | undefined
   categories = ["Shoes", "Sports"]
+  selectedCategory = ""
 
   constructor(private storeService: StoreService) {}
 
@@ -24,6 +25,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
       .getAllCategories()
       .subscribe((categories) => {
         this.categories = categories
+        this.categories.unshift("All")
       })
   }
 
@@ -34,6 +36,9 @@ export class FiltersComponent implements OnInit, OnDestroy {
   }
 
   onShowCategory(category: string): void {
-    this.showCategory.emit(category)
+    if (this.selectedCategory !== category) {
+      this.selectedCategory = category
+      this.showCategory.emit(category)
+    }
   }
 }
