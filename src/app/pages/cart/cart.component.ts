@@ -8,15 +8,7 @@ import { CartService } from "src/app/services/cart.service"
 })
 export class CartComponent implements OnInit {
   cart: Cart = {
-    items: [
-      {
-        product: "https://via.placeholder.com/150",
-        name: "snickers",
-        price: 150,
-        quantity: 1,
-        id: 1,
-      },
-    ],
+    items: [],
   }
   dataSource: Array<CartItem> = []
   displayedColumns: string[] = [
@@ -35,6 +27,23 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = this.cart.items
+    this.cartService.cart.subscribe((_cart) => {
+      this.cart = _cart
+      this.dataSource = this.cart.items
+    })
   }
+
+  onAddQuantity(item: CartItem): void {
+    this.cartService.addToCart(item)
+  }
+
+  onRemoveFromCart(item: CartItem): void {}
+
+  onRemoveQuantity(item: CartItem): void {}
+
+  onClearCart(): void {
+    this.cartService.clearCart()
+  }
+
+  onCheckout(): void {}
 }
