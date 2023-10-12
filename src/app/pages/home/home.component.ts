@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getProducts(): void {
     this.productsSubscription = this.storeService
-      .getAllProducts(this.count, this.sort)
+      .getAllProducts(this.count, this.sort, this.category)
       .subscribe((products) => {
         this.products = products
       })
@@ -51,8 +51,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.rowHeight = ROWS_HEIGHT[this.cols]
   }
 
+  onItemsCountChange(count: number): void {
+    this.count = count
+    this.getProducts()
+  }
+
+  onSortChange(sort: string): void {
+    this.sort = sort
+    this.getProducts()
+  }
+
   onShowCategory(newCategory: string): void {
     this.category = newCategory
+    this.getProducts()
   }
 
   onAddToCart(product: Product): void {
